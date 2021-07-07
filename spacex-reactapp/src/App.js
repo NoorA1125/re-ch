@@ -1,5 +1,4 @@
 import {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -7,14 +6,14 @@ class App extends Component {
     super();
 
     this.state = {
-      message: "Hello React"
+      rockets: [] //our rockets will be retrieved by the API call. Thats why its an empty array.
     }
   }
 
   componentDidMount() {
     fetch("https://api.spacexdata.com/v4/rockets")
       .then(res => res.json()) 
-      .then((rockets) => console.log(rockets))
+      .then((rockets) => this.setState({rockets: rockets}))
   }
 
   render() {
@@ -26,20 +25,9 @@ class App extends Component {
     } else {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {this.state.message}
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {this.state.rockets.map((rocket) =>(
+      <h1>{rocket.name}</h1>
+      ))}
     </div>
   );
 }
