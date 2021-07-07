@@ -11,7 +11,7 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount() { //API call using SpaceX API
     fetch("https://api.spacexdata.com/v4/rockets")
       .then(res => res.json())
       .then(rockets => this.setState({ rockets: rockets }))
@@ -20,13 +20,14 @@ class App extends Component {
   render() {
 
     return (
-      <div className="container">
+      // Colum
+      <div className="container"> 
         <div className="row columns">
           {this.state.rockets.map((rocket) => (
           <div className="card column" key={rocket.id}>
             <div className="card-image">
               <figure className="image is-4by3">
-                <img src={rocket.flickr_images[1]} alt="Placeholder image" />
+                <img src={rocket.flickr_images[0]} alt="Placeholder image" />
               </figure>
             </div>
             <div className="card-content">
@@ -39,8 +40,8 @@ class App extends Component {
 
               <div className="content">
                 {rocket.description}
-                <br />
-                <time dateTime="2016-1-1">First Flight: {rocket.first_flight}</time>
+                <br/> <br/>
+                <time dateTime="2016-1-1"><strong>First Flight: {rocket.first_flight}</strong></time>
               </div>
             </div>
           </div>
