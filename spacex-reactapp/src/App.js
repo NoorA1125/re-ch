@@ -21,7 +21,7 @@ class App extends Component {
   return (
     <div className="App">
       {this.state.rockets.map((rocket) =>(
-      <h1>{rocket.name}</h1>
+      <h1 key={rocket.id}>{rocket.name}</h1>
       ))}
     </div>
   );
