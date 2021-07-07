@@ -40,7 +40,7 @@ class App extends Component {
               <div className="content">
                 {rocket.description}
                 <br />
-                <time datetime="2016-1-1">First Flight: {rocket.first_flight}</time>
+                <time dateTime="2016-1-1">First Flight: {rocket.first_flight}</time>
               </div>
             </div>
           </div>
