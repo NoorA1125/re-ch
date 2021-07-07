@@ -21,27 +21,23 @@ class App extends Component {
 
     return (
       <div className="container">
-        <div className="row">
+        <div className="row columns">
           {this.state.rockets.map((rocket) => (
-          <div class="card" key={rocket.id}>
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+          <div className="card column" key={rocket.id}>
+            <div className="card-image">
+              <figure className="image is-4by3">
+                <img src={rocket.flickr_images[1]} alt="Placeholder image" />
               </figure>
             </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4">{rocket.name}</p>
+            <div className="card-content">
+              <div className="media">
+                
+                <div className="media-content">
+                  <p className="title is-4">{rocket.name}</p>
                 </div>
               </div>
 
-              <div class="content">
+              <div className="content">
                 {rocket.description}
                 <br />
                 <time datetime="2016-1-1">First Flight: {rocket.first_flight}</time>
