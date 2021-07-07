@@ -13,7 +13,8 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://api.spacexdata.com/v4/rockets")
-      .then(response => console.log(response) )
+      .then(res => res.json()) 
+      .then((rockets) => console.log(rockets))
   }
 
   render() {
